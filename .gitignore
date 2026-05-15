@@ -27,7 +27,7 @@ scg-gelp-res-tmp/
 Thumbs.db
 
 # tmp
-data
+*.fasta
 weights
 scripts
 notebooks
