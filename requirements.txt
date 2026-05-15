@@ -1,5 +1,27 @@
-torch>=2.0.0
-transformers>=4.30.0
-scikit-learn>=1.3.0
+# SCG-GELP Python dependencies
+# 
+# Install with:
+#   pip install -r requirements.txt
+#
+# IMPORTANT: After installation, uninstall triton to avoid a DNABERT-2
+# compatibility issue (see https://github.com/MAGICS-LAB/DNABERT_2/issues/57):
+#   pip uninstall triton -y
+#
+# PyTorch with CUDA 11.8 support — uses the official PyTorch extra index.
+--extra-index-url https://download.pytorch.org/whl/cu118
+torch==2.6.0
+torchvision==0.21.0
+torchaudio==2.6.0
+
+# Hugging Face Transformers
+transformers==4.55.3
+
+# Machine learning
+einops==0.8.1
+lightgbm==4.6.0
+scikit-learn==1.7.1
+xgboost==3.2.0
+
+# Utilities
 numpy>=1.24.0
 tqdm>=4.65.0
