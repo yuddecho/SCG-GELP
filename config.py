@@ -12,10 +12,6 @@ import os
 # ---------------------------------------------------------------------------
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-
-# MinMaxScaler fitted on the NESG training-set DNABERT-2 embeddings
-NESG_DNABERT_SCALER = os.path.join(PROJECT_ROOT, 'weights', 'nesg_dnabert_scaler.pickle')
-
 # ---------------------------------------------------------------------------
 # Model weight paths (large files — download from GitHub Releases)
 # ---------------------------------------------------------------------------
@@ -35,6 +31,11 @@ BEST_MODELS_DIR = os.path.join(PROJECT_ROOT, 'weights', 'sk_best_models')
 # Set to False when models were trained on unscaled embeddings (default).
 APPLY_DNABERT_SCALER = False
 
+# MinMaxScaler fitted on the NESG training-set DNABERT-2 embeddings
+# NESG_DNABERT_SCALER = os.path.join(PROJECT_ROOT, 'weights', 'nesg_dnabert_scaler.pickle')
+NESG_DNABERT_SCALER = ''
+
+
 # Default sklearn models to use for ensemble prediction.
 # Set to None to auto-detect all *_best_model.pickle files in BEST_MODELS_DIR.
 #
@@ -53,20 +54,20 @@ APPLY_DNABERT_SCALER = False
 #   SVM       - Support Vector Machine
 #   XGBoost   - Extreme Gradient Boosting
 #   GB        - Gradient Boosting
-DEFAULT_SELECTED_MODELS = ['SVM', 'LR', 'MLP', 'RF']
+DEFAULT_SELECTED_MODELS = ['SVM', 'LR', 'MLP']
 
 # Beam-search hyper-parameters for the SCG-Transformer generator.
 # Each list must have the same length; corresponding entries are paired as
 # (batch_size, width, size) for successive beam-search rounds.
 
 # test
-BEAM_BATCH_SIZES = [4]
-BEAM_WIDTHS = [5]
-BEAM_SIZES = [80]
+# BEAM_BATCH_SIZES = [4]
+# BEAM_WIDTHS = [5]
+# BEAM_SIZES = [80]
 
-# BEAM_BATCH_SIZES = [1, 2, 4, 8, 16, 32]
-# BEAM_WIDTHS = [2, 2, 3, 4, 5, 5]
-# BEAM_SIZES = [val * 20 for val in BEAM_BATCH_SIZES]
+BEAM_BATCH_SIZES = [1, 2, 4, 8, 16, 32]
+BEAM_WIDTHS = [2, 2, 3, 4, 5, 5]
+BEAM_SIZES = [val * 20 for val in BEAM_BATCH_SIZES]
 
 # Toggle individual pipeline stages on/off.
 EXEC_FUNC = {
