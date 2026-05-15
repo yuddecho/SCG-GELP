@@ -140,7 +140,7 @@ Example data is provided in `data/example/`:
 python run.py --input data/example/proteins.csv --reference data/example/ref_genes.csv
 ```
 
-Results are saved to `data/example/outputs/` by default.
+Results are saved to `data/example/outputs/` by default. Result file: `XXX-scg-gelp-res.csv`
 
 ---
 
