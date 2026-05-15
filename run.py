@@ -238,6 +238,16 @@ def main():
 
     args = parser.parse_args()
 
+    # ---- Determine output directory ----
+    if args.output_dir:
+        output_dir = args.output_dir
+    elif args.input:
+        # Batch mode: output alongside the input CSV
+        output_dir = os.path.dirname(os.path.abspath(args.input))
+    else:
+        # Single protein: output to ./outputs/
+        output_dir = os.path.join(os.getcwd(), 'outputs')
+
     # Load reference gene sequences (optional)
     reference_map = None
     if args.reference:
@@ -254,7 +264,7 @@ def main():
         if not os.path.exists(args.input):
             print(f'[Error] Input CSV not found: {args.input}')
             sys.exit(1)
-        run_batch(args.input, args.output_dir, reference_map)
+        run_batch(args.input, output_dir, reference_map)
     else:
         if not args.protein_name:
             parser.error('--protein_name is required when not using --input')
@@ -262,7 +272,7 @@ def main():
             parser.error('--protein_seq is required when not using --input')
 
         refs = reference_map.get(args.protein_name, {}) if reference_map else {}
-        run_single(args.protein_name, args.protein_seq, args.output_dir,
+        run_single(args.protein_name, args.protein_seq, output_dir,
                    refs if refs else None)
 
 
