@@ -7,12 +7,6 @@ sequence, SCG-GELP generates multiple synonymous DNA sequences and predicts thei
 soluble expression probability in *Escherichia coli* through a three-stage
 pipeline:
 
-1. **SCG-Transformer** – generates diverse synonymous codon candidates via
-   beam-search decoding.
-2. **DNABERT-2** – extracts deep contextual embeddings from each DNA sequence.
-3. **Ensemble sklearn classifiers** – ranks all candidates (and optional
-   reference genes) by predicted soluble expression probability.
-
 ![SCG-GELP Pipeline](images/Figure_1.png)
 
 ---
@@ -157,8 +151,8 @@ Results are saved to `data/example/outputs/` by default.
 ```bash
 # Single protein
 python run.py \
-    --protein_name MK \
-    --protein_seq "MKVWLVGAYGIVSTTAMVGARAIERGIAPKIGLVSELPHFEGIEK...*"
+    --protein_name MR \
+    --protein_seq "MRIINVKDYEEMSRKAADLIAAQIILNPKSSLGLAHGKSPIGFYERLVELNRNGVIDFSHVTTINLDEYYGLDPTHDQSYRYFMNKHLFSRVNINMANTHLPDGKAKDIDAECIRYDDLIESVGGIDLQLLGIGHNGHIFFNEPSDEFIPGTHCVSLSQSTINANSLMYFSRDEVQRKAITMGIKAIMQARYVQLIASGEDQIEILKKALFGPITPQVPASILQLHKDLTVITPLDI*"
 
 # Single protein with reference genes for comparison
 python run.py \
@@ -212,8 +206,8 @@ from scg_gelp import run, get_ranking
 
 # Run the full pipeline
 res = run(
-    protein_name='MK',
-    protein_seq='MKVWLVGAYGIVSTTAMVGARAIERGIAPKIGLVSELPHFEGIEK...*',
+    protein_name='MR',
+    protein_seq='MRIINVKDYEEMSRKAADLIAAQIILNPKSSLGLAHGKSPIGFYERLVELNRNGVIDFSHVTTINLDEYYGLDPTHDQSYRYFMNKHLFSRVNINMANTHLPDGKAKDIDAECIRYDDLIESVGGIDLQLLGIGHNGHIFFNEPSDEFIPGTHCVSLSQSTINANSLMYFSRDEVQRKAITMGIKAIMQARYVQLIASGEDQIEILKKALFGPITPQVPASILQLHKDLTVITPLDI**',
     reference_dnas={'WT': 'ATGAAAGTT...'},   # optional
 )
 
