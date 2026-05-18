@@ -3,14 +3,11 @@ __pycache__/
 *.pyo
 
 # Output directories
-*-scg-gelp-res/
-scg-gelp-res-tmp/
 
 # Model weight files (distributed via GitHub Releases)
 *.pt
 *.bin
 *.pth
-*.pickle
 
 # IDE / Editor
 .vscode/
@@ -32,4 +29,3 @@ weights
 scripts
 notebooks
 docker
-outputs
